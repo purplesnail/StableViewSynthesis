@@ -178,12 +178,12 @@ if sys.platform == "darwin":
     cpp_args.append("-stdlib=libc++")
 
 nvcc_args = [
-    "-arch=sm_30",
-    "-gencode=arch=compute_30,code=sm_30",
-    "-gencode=arch=compute_35,code=sm_35",
+    "-arch=sm_35",
+    #"-gencode=arch=compute_30,code=sm_30",
+    #"-gencode=arch=compute_35,code=sm_35",
     # '-gencode=arch=compute_50,code=sm_50',
     # '-gencode=arch=compute_52,code=sm_52',
-    # '-gencode=arch=compute_60,code=sm_60',
+    '-gencode=arch=compute_60,code=sm_60',
     # '-gencode=arch=compute_61,code=sm_61',
     # '-gencode=arch=compute_70,code=sm_70',
     # '-gencode=arch=compute_70,code=compute_70',

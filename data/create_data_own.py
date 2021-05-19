@@ -56,9 +56,9 @@ def run(dense_dir, scale, dm_write_vis=False):
     pw_dir.mkdir(parents=True, exist_ok=True)
 
     src_im_paths = []
-    src_im_paths += sorted((dense_dir / "images").glob("src*.png"))
-    src_im_paths += sorted((dense_dir / "images").glob("src*.jpg"))
-    src_im_paths += sorted((dense_dir / "images").glob("src*.jpeg"))
+    src_im_paths += sorted((dense_dir / "images").glob("IMG*.png"))
+    src_im_paths += sorted((dense_dir / "images").glob("IMG*.jpg"))
+    src_im_paths += sorted((dense_dir / "images").glob("IMG*.jpeg"))
 
     src_Ks, src_Rs, src_ts = co.colmap.load_cameras(
         dense_dir / "sparse", src_im_paths, scale
