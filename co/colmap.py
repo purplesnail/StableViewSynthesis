@@ -1273,13 +1273,14 @@ def load_cameras(sparse_dir, im_paths, scale=1, dtype=None):
     Rs = np.empty((len(im_paths), 3, 3), dtype=np.float64)
     ts = np.empty((len(im_paths), 3), dtype=np.float64)
     for idx, im_path in enumerate(im_paths):
-        im = ims[im_path.name]
-        camera_id = im.camera_id
-        K = np.eye(3)
-        K[0, 0], K[1, 1], K[0, 2], K[1, 2] = cams[camera_id].params
-        Ks[idx] = K
-        Rs[idx] = rotm_from_quat(im.qvec)
-        ts[idx] = im.tvec
+        if 'im_path.name' in ims:
+            im = ims[im_path.name]
+            camera_id = im.camera_id
+            K = np.eye(3)
+            K[0, 0], K[1, 1], K[0, 2], K[1, 2] = cams[camera_id].params
+            Ks[idx] = K
+            Rs[idx] = rotm_from_quat(im.qvec)
+            ts[idx] = im.tvec
     if scale != 1:
         Ks[:, :2] *= scale
 

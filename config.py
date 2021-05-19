@@ -79,5 +79,5 @@ def get_feature_tmp_dir(experiments_root, experiment_name):
 
 lpips_root = None
 # TODO: change to valid roots; i.e. Path('...')
-tat_root = None
-fvs_root = None
+tat_root = Path('/content/StableViewSynthesis')
+fvs_root = Path('/content/StableViewSynthesis')
